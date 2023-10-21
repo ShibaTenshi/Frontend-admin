@@ -1,8 +1,7 @@
 import {isTokenValidate} from "~/composables/tokenValidate";
 
-export default defineNuxtRouteMiddleware(() => {
-
-    if (!isTokenValidate()) {
-      return navigateTo('/login')
+export default defineNuxtRouteMiddleware(async (to,from) => {
+    if (!await isTokenValidate()){
+        return navigateTo('/login')
     }
 })
