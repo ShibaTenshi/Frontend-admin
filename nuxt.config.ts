@@ -9,8 +9,8 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     public: {
-      STORAGE_URL: process.env.NUXT_STORAGE_URL,
-      API_URL: process.env.NUXT_API_URL
+      STORAGE_URL: "https://content-shibaqueue.doksakura.com",
+      API_URL: "https://api-shibaqueue.doksakura.com"
     },
   },
 })
