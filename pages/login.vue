@@ -62,7 +62,7 @@ const state = ref({
 
 async function submit(event: FormSubmitEvent<Schema>) {
 
-  const {data: responseData} = await useFetch("http://localhost:5041" + '/auth/login/admin', {
+  const {data: responseData} = await useFetch(runtime.public.API_URL + '/auth/login/admin', {
     method: 'post',
     body: {
       username: event.data.username,
