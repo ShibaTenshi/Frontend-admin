@@ -21,6 +21,8 @@
         <UInput v-model="state.password" type="password"/>
       </UFormGroup>
       <br/>
+      <h1 class="text-red-500 text-sm text-center">{{error}}</h1>
+      <br/>
       <UButton type="submit" block>
         Submit
       </UButton>
@@ -39,7 +41,8 @@ import {z} from 'zod'
 import type {FormSubmitEvent} from '@nuxt/ui/dist/runtime/types'
 import {isTokenValidate} from "~/composables/tokenValidate";
 
-const toast = useToast()
+const error = ref("");
+const runtime = useRuntimeConfig();
 
 if(await isTokenValidate()) {
   navigateTo("/");
@@ -59,7 +62,7 @@ const state = ref({
 
 async function submit(event: FormSubmitEvent<Schema>) {
 
-  const {data: responseData} = await useFetch('http://10.147.17.253:5041/auth/login/admin', {
+  const {data: responseData} = await useFetch("http://localhost:5041" + '/auth/login/admin', {
     method: 'post',
     body: {
       username: event.data.username,
@@ -69,7 +72,7 @@ async function submit(event: FormSubmitEvent<Schema>) {
 
   let respond = <string>responseData.value;
   if (respond.startsWith("Error")) {
-    toast.add({title: respond})
+    error.value = respond.slice(7).toUpperCase();
   } else {
     const token = useCookie<string>("token");
     token.value = respond;

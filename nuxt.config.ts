@@ -6,5 +6,11 @@ export default defineNuxtConfig({
   },
   colorMode: {
     preference: 'light'
-  }
+  },
+  runtimeConfig: {
+    public: {
+      STORAGE_URL: process.env.STORAGE_URL,
+      API_URL: process.env.API_URL
+    },
+  },
 })

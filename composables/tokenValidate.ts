@@ -2,8 +2,9 @@ import {emojiSequenceWithComponentsToString} from "@iconify/utils/lib/emoji/test
 
 export async function isTokenValidate() {
     const tokenRef = useCookie("token");
+    const runtimeConfig = useRuntimeConfig();
 
-    const {data: responseData} = await useFetch('http://10.147.17.253:5041/token', {
+    const {data: responseData} = await useFetch(runtimeConfig.public.API_URL + '/token', {
         method: 'get',
         params: {
             token: tokenRef.value
@@ -13,5 +14,4 @@ export async function isTokenValidate() {
     let respond = <string>responseData.value;
     if (respond == "") return true;
     return respond == "";
-
 }
