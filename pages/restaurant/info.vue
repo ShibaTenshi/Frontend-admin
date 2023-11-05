@@ -12,15 +12,15 @@
       </UModal>
       <UModal v-model="cancelRestaurant">
         <UForm class="p-5"
-            :schema="schema"
-            :state="state"
-            @submit="submit"
+               :schema="schema"
+               :state="state"
+               @submit="submit"
         >
           <UFormGroup label="reason" name="reason">
             <UInput v-model="state.reason"/>
           </UFormGroup>
           <br/>
-          <h1 class="text-red-500 text-sm text-center">{{error}}</h1>
+          <h1 class="text-red-500 text-sm text-center">{{ error }}</h1>
           <br/>
           <UButton type="submit" block>
             Submit
@@ -35,7 +35,7 @@
       <h1 class="text-sm font-bold">{{ record.dateAdded }}</h1>
     </div>
     <div class="flex justify-center p-5">
-      <h1 class="text-sm font-bold">Category:  {{ record.category }}</h1>
+      <h1 class="text-sm font-bold">Category: {{ record.category }}</h1>
     </div>
     <div class="flex justify-center p-16">
       <a class="text-gray-500">{{ record.description }}</a>
@@ -44,7 +44,8 @@
       <h1 class="text-2xl font-bold text-primary">Restaurant Environments</h1>
     </div>
     <div class="grid grid-cols-3 gap-5 w-[90%] m-auto">
-      <img v-for="link in envLink" :src="runtime.public.STORAGE_URL + link" class="w-[500px]" @click="isOpen = true; modalLink = runtime.public.STORAGE_URL + link"/>
+      <img v-for="link in envLink" :src="runtime.public.STORAGE_URL + link" class="w-[500px]"
+           @click="isOpen = true; modalLink = runtime.public.STORAGE_URL + link"/>
     </div>
     <br/>
     <br/>
@@ -52,7 +53,8 @@
       <h1 class="text-2xl font-bold text-primary">Restaurant Menus</h1>
     </div>
     <div class="grid grid-cols-3 gap-5 w-[90%] m-auto">
-      <img v-for="link in menuLink" :src="runtime.public.STORAGE_URL + link" @click="isOpen = true; modalLink = runtime.public.STORAGE_URL + link"/>
+      <img v-for="link in menuLink" :src="runtime.public.STORAGE_URL + link"
+           @click="isOpen = true; modalLink = runtime.public.STORAGE_URL + link"/>
     </div>
     <br/>
     <br/>
@@ -71,16 +73,16 @@
 
       </div>
       <div class="flex justify-center">
-        <h1 class="p-5">Open Time: {{record.openTime}}</h1>
-        <h1 class="p-5">Close Time: {{record.closeTime}}</h1>
+        <h1 class="p-5">Open Time: {{ record.openTime }}</h1>
+        <h1 class="p-5">Close Time: {{ record.closeTime }}</h1>
       </div>
     </div>
 
     <div class="p-5">
       <h1 class="text-2xl font-bold text-primary text-center p-5">Owner</h1>
-      <h1 class="text-center">Owner Name: {{record.ownerName}}</h1>
-      <h1 class="text-center">User Name: {{record.username}}</h1>
-      <h1 class="text-center">Owner Name: {{record.email}}</h1>
+      <h1 class="text-center">Owner Name: {{ record.ownerName }}</h1>
+      <h1 class="text-center">User Name: {{ record.username }}</h1>
+      <h1 class="text-center">Owner Name: {{ record.email }}</h1>
     </div>
 
     <div class="flex justify-around p-5">
@@ -115,8 +117,6 @@ const {data} = await useFetch(runtime.public.API_URL + '/admin/unapproved', {
   }
 });
 const record = data.value;
-let error;
-
 const {data: logo} = await useFetch(runtime.public.STORAGE_URL + '/restaurant/image/logo/' + record.restaurantName);
 const logoLink = runtime.public.STORAGE_URL + logo.value;
 
@@ -138,21 +138,17 @@ async function submit(event: FormSubmitEvent<Schema>) {
     method: 'post',
     body: {
       tokenId: useCookie("token"),
-      id: restaurantId,
+      idRestaurant: restaurantId,
       reason: event.data.reason
     }
   })
-
-  if(!data.value) {
-    navigateTo("/restaurant/list");
-  }
-  else{
-    error = data.value;
-  }
+  navigateTo("/restaurant/list");
 }
+
 const discard = () => {
   cancelRestaurant.value = true;
 }
+
 async function approve() {
   const {data: responseData} = await useFetch(runtime.public.API_URL + '/admin/approve', {
     method: 'post',
@@ -161,6 +157,6 @@ async function approve() {
       id: record.id
     }
   })
-  navigateTo("/");
+  navigateTo("/restaurant/list");
 }
 </script>
