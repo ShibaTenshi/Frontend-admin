@@ -1,0 +1,1 @@
+import{H as t}from"./components.9a3462e0.js";import{f as a,o as s,g as n,w as _,a as e}from"./entry.abf80c1c.js";const c=e("title",null,"Home - Shibaqueue Admin",-1),l=e("h1",{class:"my-20"},"Hello World",-1),u=a({__name:"index",setup(r){return(d,i)=>{const o=t;return s(),n(o,null,{default:_(()=>[c,l]),_:1})}}});export{u as default};

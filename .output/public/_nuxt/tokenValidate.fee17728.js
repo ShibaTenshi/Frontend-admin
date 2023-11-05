@@ -1,0 +1,1 @@
+import{j as a}from"./entry.abf80c1c.js";import{u as r}from"./fetch.28144918.js";import{u as s}from"./cookie.4cd98f25.js";async function f(){const t=s("token"),o=a(),{data:n}=await r(o.public.API_URL+"/token",{method:"get",params:{token:t.value}},"$NEInFCuAFa");let e=n.value;return e==""?!0:e==""}export{f as i};

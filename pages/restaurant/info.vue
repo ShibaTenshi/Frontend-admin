@@ -153,7 +153,7 @@ async function submit(event: FormSubmitEvent<Schema>) {
 const discard = () => {
   cancelRestaurant.value = true;
 }
-function approve() {
+async function approve() {
   const {data: responseData} = await useFetch(runtime.public.API_URL + '/admin/approve', {
     method: 'post',
     body: {

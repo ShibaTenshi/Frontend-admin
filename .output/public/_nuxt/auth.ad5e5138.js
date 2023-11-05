@@ -1,0 +1,1 @@
+import{Z as o,$ as a,n as i}from"./entry.abf80c1c.js";import{i as r}from"./tokenValidate.fee17728.js";import"./fetch.28144918.js";import"./index.344f9f74.js";import"./cookie.4cd98f25.js";const l=o(async(s,m)=>{let t,e;if([t,e]=a(()=>r()),t=await t,e(),!t)return i("/login")});export{l as default};
