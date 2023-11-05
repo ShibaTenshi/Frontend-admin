@@ -33,7 +33,11 @@ const colums = [{
   key: 'dateAdded', label: 'Date Added', sortable: "true"
 }];
 
-const {pending, data} = useFetch(runtime.public.API_URL + '/content/unapproved/list');
+const {pending, data} = useFetch(runtime.public.API_URL + '/admin/unapproved/list', {
+  params: {
+    tokenId: useCookie("token")
+  }
+});
 
 const q = ref('');
 
