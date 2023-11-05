@@ -138,7 +138,7 @@ async function submit(event: FormSubmitEvent<Schema>) {
     method: 'post',
     body: {
       tokenId: useCookie("token"),
-      id: record.id,
+      id: restaurantId,
       reason: event.data.reason
     }
   })
