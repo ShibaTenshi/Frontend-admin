@@ -143,11 +143,11 @@ async function submit(event: FormSubmitEvent<Schema>) {
     }
   })
 
-  if(data.value.startsWith("Error")) {
-    error = data.value;
+  if(!data.value) {
+    navigateTo("/restaurant/list");
   }
   else{
-    navigateTo("/");
+    error = data.value;
   }
 }
 const discard = () => {
