@@ -41,6 +41,11 @@
       <a class="text-gray-500">{{ record.description }}</a>
     </div>
     <div class="flex justify-center py-3">
+      <h1 class="text-2xl font-bold text-primary">Location</h1>
+    </div>
+    <h1 class="text-2xl font-bold text-gray-500 text-center font-light text-md">{{record.location}}</h1>
+    <br/>
+    <div class="flex justify-center py-3">
       <h1 class="text-2xl font-bold text-primary">Restaurant Environments</h1>
     </div>
     <div class="grid grid-cols-3 gap-5 w-[90%] m-auto">
