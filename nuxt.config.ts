@@ -12,5 +12,5 @@ export default defineNuxtConfig({
       STORAGE_URL: "https://content-shibaqueue.doksakura.com",
       API_URL: "https://api-shibaqueue.doksakura.com"
     },
-  },
+  }
 })

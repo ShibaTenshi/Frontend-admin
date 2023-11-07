@@ -4,6 +4,7 @@
   </Head>
   <div class="w-80 mx-auto my-[10%]">
 
+    <div>{{x}}</div>
     <img src="/logo.png" alt="" class="mx-auto w-[100px]"/>
     <br/>
     <h1 class="font-bold text-center">ShibaQueue Administration</h1>

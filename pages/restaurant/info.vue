@@ -85,9 +85,9 @@
 
     <div class="p-5">
       <h1 class="text-2xl font-bold text-primary text-center p-5">Owner</h1>
-      <h1 class="text-center">Owner Name: {{ record.ownerName }}</h1>
-      <h1 class="text-center">User Name: {{ record.username }}</h1>
-      <h1 class="text-center">Owner Name: {{ record.email }}</h1>
+      <h1 class="text-center">Owner name: {{ record.ownerName }}</h1>
+      <h1 class="text-center">Username: {{ record.username }}</h1>
+      <h1 class="text-center">Email: {{ record.email }}</h1>
     </div>
 
     <div class="flex justify-around p-5">
