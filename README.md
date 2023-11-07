@@ -1,11 +1,14 @@
-# Nuxt 3 Minimal Starter
+# NuxtJs Admin Web
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+## จัดทำโดย
+- นนทิพัทธ์ ศรีสุพรรณ 6410406690 หมู่ 1
+- กิตติกานต มากผล 6410451423 หมู่ 200
+- พิชญชนาธิป ดุลบุตร 6410450192 หมู่ 200
+- พีรสิษฐ์ พลอยอร่าม 6410451237 หมู่ 200
+- ศิวกร ภาสว่าง 6410451423 หมู่ 200
 
-## Setup
 
-Make sure to install the dependencies:
-
+## Install Dependencies
 ```bash
 # npm
 npm install
